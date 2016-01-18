@@ -4,15 +4,13 @@
 </p>
 
 
-<h2>Leerdoel toevoegen:</h2>
+<h3>Leerdoel toevoegen:</h3>
 <%= form_for([@competence, @competence.goals.build]) do |f| %>
   <p>
-    <%= f.label :Leerdoel %><br>
-    <%= f.text_field :description %>
-  </p>
-  <p>
-    <%= f.label :Reflectie %><br>
-    <%= f.text_area :reflection %>
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1">Leerdoel</span>
+      <%= f.text_field :description, class:'form-control' %>
+  </div>
   </p>
   <p>
     <%= f.submit %>
