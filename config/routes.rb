@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   get 'welcome/index'
 
-  root 'welcome#index'
-  resources :competences
+  root 'competences#index'
+  resources :competences do
+    resources :goals
+  end
 
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyString
+  reflection: MyText
+  competence_id: 
+
+two:
+  description: MyString
+  reflection: MyText
+  competence_id: 

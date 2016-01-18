@@ -3,3 +3,19 @@
   <%= @competence.name %>
 </p>
 
+
+<h2>Leerdoel toevoegen:</h2>
+<%= form_for([@competence, @competence.goals.build]) do |f| %>
+  <p>
+    <%= f.label :Leerdoel %><br>
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.label :Reflectie %><br>
+    <%= f.text_area :reflection %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
