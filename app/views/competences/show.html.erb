@@ -3,12 +3,20 @@
   <%= @competence.name %>
 </p>
 
+<h3>Leerdoelen</h3>
+<% @competence.goals.each do |goal| %>
+  <p>
+    <strong>Leerdoel:</strong>
+    <%= goal.description %>
+  </p>
+<% end %>
+
 
 <h3>Leerdoel toevoegen:</h3>
 <%= form_for([@competence, @competence.goals.build]) do |f| %>
   <p>
     <div class="input-group">
-      <span class="input-group-addon" id="basic-addon1">Leerdoel</span>
+      <span class="input-group-addon" id="basic-addon1">Ik wil leren om</span>
       <%= f.text_field :description, class:'form-control' %>
   </div>
   </p>
@@ -16,4 +24,6 @@
     <%= f.submit %>
   </p>
 <% end %>
+
+<%= link_to 'Terug naar overzicht', competences_path %>
 
