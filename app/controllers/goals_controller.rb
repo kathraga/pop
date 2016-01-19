@@ -13,6 +13,9 @@ class GoalsController < ApplicationController
     redirect_to competence_path(@competence)
   end
 
+  def show
+  end
+
   def new
   end
 
