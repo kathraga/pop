@@ -24,6 +24,16 @@ class GoalsController < ApplicationController
     @goal = @competence.goals.find(params[:id])
   end
 
+  def update
+    @competence = Competence.find(params[:competence_id])
+    @goal = @competence.goals.find(params[:id])
+  if @goal.update(goal_params)
+    redirect_to @competence
+  else
+    render 'edit'
+  end
+end
+
 
  private
     def goal_params

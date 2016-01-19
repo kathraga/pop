@@ -15,7 +15,8 @@ ActiveRecord::Schema.define(version: 20160118121849) do
 
   create_table "competences", force: :cascade do |t|
     t.string   "name"
-    t.integer  "ec"
+    t.integer  "g_ec"
+    t.integer  "e_ec"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
