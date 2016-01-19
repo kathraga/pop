@@ -9,6 +9,11 @@
     <strong>Leerdoel:</strong>
     <%= goal.description %>
   </p>
+
+  <%= link_to 'Verwijder leerdoel', [goal.competence, goal], data: { confirm: 'Leerdoel verwijderen?' }, method: :delete %>
+
+
+
 <% end %>
 
 
@@ -18,6 +23,9 @@
     <div class="input-group">
       <span class="input-group-addon" id="basic-addon1">Ik wil leren om</span>
       <%= f.text_field :description, class:'form-control' %>
+      <p>
+
+</p>
   </div>
   </p>
   <p>

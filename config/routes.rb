@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'welcome/index'
 
+
   root 'competences#index'
   resources :competences do
     resources :goals
