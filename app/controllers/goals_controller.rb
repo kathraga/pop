@@ -19,6 +19,12 @@ class GoalsController < ApplicationController
   def new
   end
 
+  def edit
+    @competence = Competence.find(params[:competence_id])
+    @goal = @competence.goals.find(params[:id])
+  end
+
+
  private
     def goal_params
       params.require(:goal).permit(:description)

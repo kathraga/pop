@@ -11,7 +11,9 @@
   </p>
 
   <%= link_to 'Verwijder leerdoel', [goal.competence, goal], data: { confirm: 'Leerdoel verwijderen?' }, method: :delete %>
-  <%= link_to 'Leerdoel bewerken', [goal.competence, goal] %>
+  <%= link_to 'Edit', edit_competence_goal_path(@competence, goal) %>
+
+
 <% end %>
 
 
