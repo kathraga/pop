@@ -3,6 +3,7 @@ class GoalsController < ApplicationController
   def create
     @competence = Competence.find(params[:competence_id])
     @goal = @competence.goals.create(goal_params)
+    @goal.save
     redirect_to competence_path(@competence)
   end
 
@@ -14,10 +15,12 @@ class GoalsController < ApplicationController
   end
 
   def show
+    @competence = Competence.find(params[:competence_id])
+    @goal = @competence.goals.find(params[:id])
   end
 
-  def new
-  end
+
+
 
   def edit
     @competence = Competence.find(params[:competence_id])

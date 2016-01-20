@@ -1,23 +1,38 @@
 <p>
-  <strong>Competentie:</strong>
-  <%= @competence.name %>
+  <h1>Competentie: <%= @competence.name %> </h1>
 </p>
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#goals_overview">Overzicht leerdoelen</a></li>
+    <li><a data-toggle="tab" href="#goal_add">Leerdoel toevoegen</a></li>
+  </ul>
 
-<h3>Leerdoelen</h3>
-<% @competence.goals.each do |goal| %>
-  <p>
-    <strong>Leerdoel:</strong>
-    <%= goal.description %>
-  </p>
-
-  <%= link_to 'Verwijder leerdoel', [goal.competence, goal], data: { confirm: 'Leerdoel verwijderen?' }, method: :delete %>
-  <%= link_to 'Leerdoel bijwerken', edit_competence_goal_path(@competence, goal) %>
-
-
-<% end %>
-
-
-<h3>Leerdoel toevoegen:</h3>
+  <div class="tab-content">
+    <div id="goals_overview" class="tab-pane fade in active">
+      <h3>Leerdoelen:</h3>
+      <p>
+  <table class="table">
+    <% @competence.goals.each do |goal| %>
+     <tr>
+       <td><strong>Ik wil leren om: </strong><%= goal.description %></td>
+       <td><%= link_to [goal.competence, goal], data: { confirm: 'Leerdoel verwijderen?' }, method: :delete do %>
+          <span class="glyphicon glyphicon-remove"></span>
+        <% end %>
+       </td>
+       <td><%= link_to edit_competence_goal_path(@competence, goal) do %>
+          <span class="glyphicon glyphicon-pencil"></span>
+        <% end %>
+       </td>
+       <td><%= link_to competence_goal_path(@competence, goal) do %>
+          <span class="glyphicon glyphicon-eye-open"></span>
+        <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table></p>
+    </div>
+    <div id="goal_add" class="tab-pane fade">
+      <h3>Leerdoel toevoegen:</h3>
+      <p>
 <%= form_for([@competence, @competence.goals.build]) do |f| %>
   <p>
     <div class="input-group">
@@ -31,7 +46,16 @@
   <p>
     <%= f.submit("Leerdoel toevoegen") %>
   </p>
-<% end %>
+<% end %></p>
+    </div>
+
+  </div>
+
+
+  <!-- <%= link_to 'Leerdoel Toevoegen', new_competence_goal_path(@competence, @goal) %> -->
+
+
+
 
 <%= link_to 'Terug naar overzicht', competences_path %>
 
