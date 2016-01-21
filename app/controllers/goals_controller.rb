@@ -26,7 +26,7 @@ class GoalsController < ApplicationController
 
   def update
   if @goal.update(goal_params)
-    redirect_to @competence
+    redirect_to edit_competence_goal_path(@competence, @goal)
   else
     render 'edit'
   end
