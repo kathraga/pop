@@ -1,35 +1,27 @@
 class GoalsController < ApplicationController
+  before_action :set_competence, only: [:destroy, :create, :show, :edit, :update]
+  before_action :set_goal, only: [:destroy, :show, :edit, :update]
 
   def create
-    @competence = Competence.find(params[:competence_id])
     @goal = @competence.goals.create(goal_params)
-    @goal.save
-    redirect_to competence_path(@competence)
+    redirect_to competence_goal_path(@competence, @goal)
   end
 
    def destroy
-    @competence = Competence.find(params[:competence_id])
-    @goal = @competence.goals.find(params[:id])
     @goal.destroy
     redirect_to competence_path(@competence)
   end
 
   def show
-    @competence = Competence.find(params[:competence_id])
-    @goal = @competence.goals.find(params[:id])
   end
 
-
-
+  def new
+  end
 
   def edit
-    @competence = Competence.find(params[:competence_id])
-    @goal = @competence.goals.find(params[:id])
   end
 
   def update
-    @competence = Competence.find(params[:competence_id])
-    @goal = @competence.goals.find(params[:id])
   if @goal.update(goal_params)
     redirect_to @competence
   else
@@ -39,7 +31,15 @@ end
 
 
  private
-    def goal_params
-      params.require(:goal).permit(:description)
-    end
+  def set_competence
+    @competence = Competence.find(params[:competence_id])
+  end
+
+  def set_goal
+    @goal = @competence.goals.find(params[:id])
+  end
+
+  def goal_params
+    params.require(:goal).permit(:description)
+  end
 end

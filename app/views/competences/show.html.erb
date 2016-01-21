@@ -4,6 +4,7 @@
   <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#goals_overview">Overzicht leerdoelen</a></li>
     <li><a data-toggle="tab" href="#goal_add">Leerdoel toevoegen</a></li>
+    <li><a data-toggle="tab" href="#ec_add">EC's toevoegen</a></li>
   </ul>
 
   <div class="tab-content">
@@ -47,9 +48,21 @@
     <%= f.submit("Leerdoel toevoegen") %>
   </p>
 <% end %></p>
-    </div>
 
+    </div>
+    <div id="ec_add" class="tab-pane fade">
+      <h3>EC's toevoegen:</h3>
+      <%= form_for @competence do |f| %>
+      EC's Gevorderd<%= f.select(:g_ec, ['0', '3','6','9','12'], {},{ :class => 'form-control' }) %>
+      EC's Expert<%= f.select(:e_ec, ['0', '3','6','9','12'], {},{ :class => 'form-control' }) %>
+      <%= f.submit("Ec´s toevoegen aan competentie") %>
+      <% end %>
+    </div>
   </div>
+
+
+
+
 
 
   <!-- <%= link_to 'Leerdoel Toevoegen', new_competence_goal_path(@competence, @goal) %> -->
