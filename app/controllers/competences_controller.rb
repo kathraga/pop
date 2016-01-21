@@ -17,16 +17,13 @@ class CompetencesController < ApplicationController
     end
   end
 
-
-
-
   private
   def set_competence
     @competence = Competence.find(params[:id])
   end
 
   def competence_params
-      params.require(:competence).permit(:g_ec, :e_ec)
-    end
+    params.require(:competence).permit(:g_ec, :e_ec)
+  end
 
 end

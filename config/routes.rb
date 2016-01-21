@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   root 'competences#index'
   resources :competences do
-    resources :goals
+    resources :goals do
+      resources :activities
+    end
   end
 
 

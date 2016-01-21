@@ -2,6 +2,7 @@ class GoalsController < ApplicationController
   before_action :set_competence, only: [:destroy, :create, :show, :edit, :update]
   before_action :set_goal, only: [:destroy, :show, :edit, :update]
 
+
   def create
     @goal = @competence.goals.create(goal_params)
     redirect_to competence_goal_path(@competence, @goal)
@@ -19,6 +20,8 @@ class GoalsController < ApplicationController
   end
 
   def edit
+    @activity = @goal.activities.all
+
   end
 
   def update
