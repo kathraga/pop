@@ -43,6 +43,6 @@ end
   end
 
   def goal_params
-    params.require(:goal).permit(:description)
+    params.require(:goal).permit(:description, :reflection, :evidence)
   end
 end
