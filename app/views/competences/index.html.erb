@@ -5,21 +5,20 @@
     <th>EC's expert</th>
     <th>Meer informatie</th>
   </tr>
-
   <% @competences.each do |competence| %>
-    <tr>
-      <td><%= competence.name %></td>
-      <td><%= competence.g_ec %></td>
-      <td><%= competence.e_ec %></td>
-      <td><%= link_to 'Bekijken', competence_path(competence) %></td>
-    </tr>
+  <tr>
+    <td><%= competence.name %></td>
+    <td><%= competence.g_ec %></td>
+    <td><%= competence.e_ec %></td>
+    <td><%= link_to 'Bekijken', competence_path(competence) %></td>
+  </tr>
   <% end %>
-      <tr>
-      <td></td>
-      <td>Totaal: <%= Competence.sum(:g_ec)  %> EC</td>
-      <td>Totaal: <%= Competence.sum(:e_ec)  %> EC</td>
-      <td></td>
-    </tr>
+  <tr>
+    <td></td>
+    <td>Totaal: <%= Competence.sum(:g_ec)  %> EC</td>
+    <td>Totaal: <%= Competence.sum(:e_ec)  %> EC</td>
+    <td></td>
+  </tr>
 </table>
 
 

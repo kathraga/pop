@@ -1,28 +1,23 @@
-
-
-
-<h3>Leerdoel: Ik wil leren om <%= @goal.description %></h3>
+<h3>Ik wil leren om <%= @goal.description %></h3>
 <table class="table table-condensed ">
-<%= form_for :goal, url: competence_goal_path(@competence, @goal), method: :patch do |f| %>
     <tr>
-      <td><b>Activiteiten</b></td>
-      <td>
+      <td class="col-md-2 first_col"><b>Activiteiten</b></td>
+      <td class="first_col">
         <ul>
         <% @activity.each do |a| %>
-          <li class=""><%= a.activity %></li>
+          <li><%= a.activity %></li>
         <% end %>
         </ul>
       </td>
     </tr>
     <tr>
-      <td>Bewijsvoering</td>
-      <td><%= @goal.evidence %></td>
+      <td class="first_col"><b>Bewijsvoering</b></td>
+      <td class="first_col"><%= @goal.evidence %></td>
     </tr>
     <tr>
-      <td>Behaald_omdat</td>
-      <td><%= @goal.reflection %></td>
+      <td class="first_col"><b>Behaald omdat</b></td>
+      <td class="first_col"><%= @goal.reflection %></td>
     </tr>
-    <% end %>
   </table>
 
 

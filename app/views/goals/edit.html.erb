@@ -1,56 +1,52 @@
 <h1>Leerdoel bijwerken</h1>
 <table class="table table-condensed ">
 <%= form_for :goal, url: competence_goal_path(@competence, @goal), method: :patch do |f| %>
-    <tr>
-      <td><%= f.label :Leerdoel %></td>
-      <td>
-        <div class="input-group">
-          <span class="input-group-addon" id="basic-addon1">Ik wil leren om</span><%= f.text_field :description, class: 'form-control' %>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td><b>Activiteiten</b></td>
-      <td>
-        <ul>
-        <% @activity.each do |a| %>
-          <li class="">
-            <%= a.activity %>
-            <%= link_to competence_goal_activity_path(@competence, @goal, a), data: { confirm: 'Weet je het zeker' }, method: :delete do %>
-            <span class="glyphicon glyphicon-remove pull-right"></span>
-            <% end %>
-          </li>
-        <% end %>
-        </ul>
-        <span class="glyphicon glyphicon-plus" data-toggle="modal" data-target="#add_activity"> Toevoegen</span>
-      </td>
-    </tr>
-    <tr>
-      <td><%= f.label :Bewijsvoering %></td>
-      <td><%= f.text_area :evidence, class: 'form-control'%></td>
-    </tr>
-    <tr>
-      <td><%= f.label :Behaald_omdat %></td>
-      <td><%= f.text_area :reflection, class: 'form-control custom-control', rows: 10, style: "resize:none" %></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><%= f.submit "Leerdoel bijwerken", class: 'btn btn-primary'%></td>
+  <tr>
+    <td><%= f.label :Leerdoel %></td>
+    <td>
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Ik wil leren om</span><%= f.text_field :description, class: 'form-control' %>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td><b>Activiteiten</b></td>
+    <td class="first_col">
+      <ul>
+      <% @activity.each do |a| %>
+        <li class="">
+          <%= a.activity %>
+          <%= link_to competence_goal_activity_path(@competence, @goal, a), data: { confirm: 'Weet je het zeker' }, method: :delete do %>
+          <span class="glyphicon glyphicon-remove pull-right"></span>
+          <% end %>
+        </li>
       <% end %>
-    </tr>
-  </table>
-
+      </ul>
+      <span class="glyphicon glyphicon-plus" data-toggle="modal" data-target="#add_activity"> Toevoegen</span>
+    </td>
+  </tr>
+  <tr>
+    <td><%= f.label :Bewijsvoering %></td>
+    <td><%= f.text_area :evidence, class: 'form-control'%></td>
+  </tr>
+  <tr>
+    <td><%= f.label :Behaald_omdat %></td>
+    <td><%= f.text_area :reflection, class: 'form-control custom-control', rows: 10, style: "resize:none" %></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><%= f.submit "Leerdoel bijwerken", class: 'btn btn-primary'%></td>
+  </tr>
+<% end %>
+</table>
 
 <%= link_to competence_path(@competence), class:"btn btn-default btn-sm  pull-left" do  %>
-          <span class="glyphicon glyphicon-chevron-left"></span>
-          Terug naar overzicht
-        <% end %>
-
+  <span class="glyphicon glyphicon-chevron-left"></span>Terug naar overzicht
+<% end %>
 
 <!-- Modal -->
 <div id="add_activity" class="modal fade" role="dialog">
   <div class="modal-dialog">
-
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">

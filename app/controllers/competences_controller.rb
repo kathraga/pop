@@ -10,10 +10,9 @@ class CompetencesController < ApplicationController
 
   def update
     if @competence.update_attributes(competence_params)
-      flash[:success] = "awesome"
       redirect_to @competence
     else
-      redirect_to competence_path, notice: "you fucked up man.."
+      redirect_to competence_path, notice: "Sorry.. er ging iets verkeerd"
     end
   end
 

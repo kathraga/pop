@@ -1,7 +1,25 @@
 // Place all the styles related to the competences controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+// Main table in show.html.erb
+.table td { text-align: center; }
+  .first_col { text-align: left !important; }
 
-.table td {
-   text-align: left;
-}
+// Add ec's tab on show.html.erb
+.ec_box { margin: 0 auto; width: 350px; margin-top: 20px;}
+.input-mini { width: 70px !important; }
+
+// Button add goal
+.goal_add{margin-top: 20px;}
+
+// Tabs in show.html.erb
+.nav-tabs { border-bottom: 2px solid #DDD; }
+    .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover { border-width: 0 !important; }
+    .nav-tabs > li > a { border: none; color: #666; }
+        .nav-tabs > li.active > a, .nav-tabs > li > a:hover { border: none; color: #4285F4 !important; background: transparent; }
+        .nav-tabs > li > a::after { content: ""; background: #4285F4; height: 2px; position: absolute; width: 100%; left: 0px; bottom: -1px; transition: all 250ms ease 0s; transform: scale(0); }
+    .nav-tabs > li.active > a::after, .nav-tabs > li:hover > a::after { transform: scale(1); }
+.tab-nav > li > a::after { background: #21527d none repeat scroll 0% 0%; color: #fff; }
+.tab-pane { padding: 15px 0; }
+.tab-content{padding:20px}
+

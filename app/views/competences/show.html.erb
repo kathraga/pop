@@ -1,64 +1,77 @@
-<p>
-  <h1>Competentie: <%= @competence.name %> </h1>
-</p>
-  <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#goals_overview">Overzicht leerdoelen</a></li>
-    <li><a data-toggle="tab" href="#goal_add">Leerdoel toevoegen</a></li>
-    <li><a data-toggle="tab" href="#ec_add">EC's toevoegen</a></li>
-  </ul>
-
-  <div class="tab-content">
-    <div id="goals_overview" class="tab-pane fade in active">
-      <h3>Leerdoelen:</h3>
-      <p>
-  <table class="table">
-    <% @competence.goals.each do |goal| %>
-     <tr>
-       <td><strong>Ik wil leren om: </strong><%= goal.description %></td>
-       <td><%= link_to [goal.competence, goal], data: { confirm: 'Leerdoel verwijderen?' }, method: :delete do %>
-          <span class="glyphicon glyphicon-remove"></span>
-        <% end %>
+<h1>Competentie: <%= @competence.name %> </h1>
+<ul class="nav nav-tabs">
+  <li class="active"><a data-toggle="tab" href="#goals_overview">Overzicht leerdoelen</a></li>
+  <li><a data-toggle="tab" href="#goal_add">Leerdoel toevoegen</a></li>
+  <li><a data-toggle="tab" href="#ec_add">EC's toevoegen</a></li>
+</ul>
+<div class="tab-content">
+  <div id="goals_overview" class="tab-pane fade in active">
+    <h3>Leerdoelen:</h3>
+    <table class="table">
+      <thead>
+        <th class="col-md-9 first_col">Leerdoel</th>
+        <th class="col-md-1">Verwijderen</th>
+        <th class="col-md-1">Bewerken</th>
+        <th class="col-md-1">Bekijken</th>
+      </thead>
+      <% @competence.goals.each do |goal| %>
+      <tr>
+        <td class="first_col"><strong>Ik wil leren om: </strong><%= goal.description %></td>
+        <td>
+          <%= link_to [goal.competence, goal], data: { confirm: 'Leerdoel verwijderen?' }, method: :delete do %>
+          <span class="glyphicon glyphicon-remove text-center"></span>
+          <% end %>
        </td>
-       <td><%= link_to edit_competence_goal_path(@competence, goal), :data => { :no_turbolink => true } do %>
+       <td>
+        <%= link_to edit_competence_goal_path(@competence, goal), :data => { :no_turbolink => true } do %>
           <span class="glyphicon glyphicon-pencil"></span>
         <% end %>
        </td>
-       <td><%= link_to competence_goal_path(@competence, goal) do %>
+       <td>
+        <%= link_to competence_goal_path(@competence, goal) do %>
           <span class="glyphicon glyphicon-eye-open"></span>
         <% end %>
         </td>
       </tr>
-    <% end %>
-  </table></p>
+      <% end %>
+    </table>
   <%= link_to competences_path, class:"btn btn-default btn-sm  pull-left" do %>
-  <span class="glyphicon glyphicon-chevron-left"></span>Terug naar competenties overzicht
-<% end %>
-    </div>
-    <div id="goal_add" class="tab-pane fade">
-      <h3>Leerdoel toevoegen:</h3>
-      <p>
-<%= form_for([@competence, @competence.goals.build]) do |f| %>
-  <p>
-    <div class="input-group">
-      <span class="input-group-addon" id="basic-addon1">Ik wil leren om</span>
-      <%= f.text_field :description, class:'form-control' %>
+    <span class="glyphicon glyphicon-chevron-left"></span>Terug naar competenties overzicht
+  <% end %>
+</div>
+  <div id="goal_add" class="tab-pane fade">
+    <h3>Leerdoel toevoegen:</h3>
+    <%= form_for([@competence, @competence.goals.build]) do |f| %>
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Ik wil leren om</span>
+        <%= f.text_field :description, class:'form-control' %>
+      </div>
+      <p><%= f.submit "Leerdoel toevoegen", class: 'btn btn-primary goal_add' %></p>
+    <% end %>
   </div>
-  </p>
-  <p>
-    <%= f.submit "Leerdoel toevoegen", class: 'btn btn-primary' %>
-  </p>
-<% end %></p>
-
-    </div>
-    <div id="ec_add" class="tab-pane fade">
-      <h3>EC's toevoegen:</h3>
+  <div id="ec_add" class="tab-pane fade">
+    <h3>Opgenomen EC's </h3>
+    <div class="ec_box">
       <%= form_for @competence do |f| %>
-      EC's Gevorderd<%= f.select(:g_ec, ['0', '3','6','9','12'], {},{ :class => 'form-control' }) %>
-      EC's Expert<%= f.select(:e_ec, ['0', '3','6','9','12'], {},{ :class => 'form-control' }) %>
-      <%= f.submit "Ec´s toevoegen aan competentie", class: 'btn btn-primary' %>
+        <form class="pagination-centered">
+          <fieldset class="form-group">
+            <label for="ecg" class="col-sm-6 form-control-label">EC's Gevorderd</label>
+            <div class="col-sm-2">
+                <%= f.select(:g_ec, ['0', '3','6','9','12'], {},{ :class => 'form-control input-mini', :id => 'ecg' }) %>
+            </div>
+          </fieldset>
+          <fieldset class="form-group">
+            <label for="ece" class="col-sm-6 form-control-label">EC's Expert</label>
+            <div class="col-sm-2">
+              <%= f.select(:e_ec, ['0', '3','6','9','12'], {},{ :class => 'form-control input-mini', :id => 'ece'})%>
+            </div>
+          </fieldset>
+            <%= f.submit "Ec's bijwerken", class: 'btn btn-primary' %>
+        </form>
       <% end %>
     </div>
   </div>
+</div>
 
 
 
