@@ -1,58 +1,6 @@
 <h1>Leerdoel bijwerken</h1>
 <table class="table table-condensed ">
 <%= form_for :goal, url: competence_goal_path(@competence, @goal), method: :patch do |f| %>
-
-
-
-  <p>
-    <%= f.label :Leerdoel %><br>
-    <%= f.text_field :description %>
-  </p>
-
-  <p>
-    <%= f.label :Behaald_omdat %><br>
-    <%= f.text_area :reflection %>
-  </p>
-   <p>
-    <%= f.label :Bewijsvoering %><br>
-    <%= f.text_area :evidence %>
-  </p>
-
-
-  <p>
-    <%= f.submit "leerdoel bijwerken", class: 'btn btn-primary' %>
-  </p>
-
-<% end %>
-<hr>
-
-
-Activiteiten:
-<% @activity.each do |a| %>
-<ul class="list-group">
-  <li class="list-group-item list-group-item-success"><%= a.activity %>
-
-  <%= link_to [a.goal.competence, a], data: { confirm: 'Leerdoel verwijderen?' }, method: :delete do %>
-  <%= link_to "Delete Attachment", competence_goal_activities_path(@competence.goal.activity.id, @attachment.thread.id, @attachment.id), :confirm => "Are you sure you want to delete this attachment?", :method => :delete %>
-  <% end %>
- </li>
-
-
-
-</ul>
-
-<% end %>
-
-<%= form_for([@competence, @goal, @goal.activities.build]) do |f| %>
-  <%= f.text_field :activity %>
-  <%= f.submit "Activiteiten bijwerken", class: 'btn btn-primary' %>
-<% end %>
-
-<hr>
-
-<%= link_to 'Terug naar overzicht', competence_path(@competence) %>
-
-
     <tr>
       <td><%= f.label :Leerdoel %></td>
       <td>
@@ -118,4 +66,3 @@ Activiteiten:
 
   </div>
 </div>
-
