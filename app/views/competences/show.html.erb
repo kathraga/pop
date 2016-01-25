@@ -19,7 +19,7 @@
           <span class="glyphicon glyphicon-remove"></span>
         <% end %>
        </td>
-       <td><%= link_to edit_competence_goal_path(@competence, goal) do %>
+       <td><%= link_to edit_competence_goal_path(@competence, goal), :data => { :no_turbolink => true } do %>
           <span class="glyphicon glyphicon-pencil"></span>
         <% end %>
        </td>

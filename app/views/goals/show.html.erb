@@ -1,17 +1,9 @@
-<%= @goal.description %>
-<%= @goal.reflection %>
 
-<h1>Leerdoel bekijken</h1>
+
+
+<h3>Leerdoel: Ik wil leren om <%= @goal.description %></h3>
 <table class="table table-condensed ">
 <%= form_for :goal, url: competence_goal_path(@competence, @goal), method: :patch do |f| %>
-    <tr>
-      <td><%= f.label :Leerdoel %></td>
-      <td>
-        <div class="input-group">
-          <span class="input-group-addon" id="basic-addon1">Ik wil leren om</span><%= @goal.description %>
-        </div>
-      </td>
-    </tr>
     <tr>
       <td><b>Activiteiten</b></td>
       <td>
@@ -23,11 +15,11 @@
       </td>
     </tr>
     <tr>
-      <td><%= f.label :Bewijsvoering %></td>
+      <td>Bewijsvoering</td>
       <td><%= @goal.evidence %></td>
     </tr>
     <tr>
-      <td><%= f.label :Behaald_omdat %></td>
+      <td>Behaald_omdat</td>
       <td><%= @goal.reflection %></td>
     </tr>
     <% end %>
