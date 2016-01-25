@@ -30,9 +30,12 @@ Activiteiten:
 <% @activity.each do |a| %>
 <ul class="list-group">
   <li class="list-group-item list-group-item-success"><%= a.activity %>
-  <%= link_to [@goal, @activity], data: { confirm: 'Leerdoel verwijderen?' }, method: :delete do %>
-          <span class="glyphicon glyphicon-remove"></span></li>
-          <% end %>
+
+  <%= link_to [a.goal.competence, a], data: { confirm: 'Leerdoel verwijderen?' }, method: :delete do %>
+  <%= link_to "Delete Attachment", competence_goal_activities_path(@competence.goal.activity.id, @attachment.thread.id, @attachment.id), :confirm => "Are you sure you want to delete this attachment?", :method => :delete %>
+  <% end %>
+ </li>
+
 
 
 </ul>

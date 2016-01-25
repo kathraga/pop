@@ -15,7 +15,8 @@ class ActivitiesController < ApplicationController
   def destroy
     @competence = Competence.find(params[:competence_id])
     @goal = Competence.goal.find(params[:goal_id])
-    @activity = @goal.activity.destroy
+    @activity = @goal.activity.find(params[:activity_params])
+    @activity.destroy
     redirect_to competence_path(@competence)
   end
 
