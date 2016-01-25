@@ -14,10 +14,16 @@ class ActivitiesController < ApplicationController
 
   def destroy
     @competence = Competence.find(params[:competence_id])
-    @goal = Competence.goal.find(params[:goal_id])
-    @activity = @goal.activity.find(params[:activity_params])
+    @goal = Goal.find(params[:goal_id])
+    @activity = Activity.find(params[:id])
     @activity.destroy
-    redirect_to competence_path(@competence)
+    redirect_to edit_competence_goal_path(@competence, @goal)
+
+
+
+    #  @post = Post.find(params[:post_id])
+    # @comment = Comment.find(params[:id])
+    # @comment.destroy
   end
 
   def edit

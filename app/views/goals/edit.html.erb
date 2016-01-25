@@ -14,8 +14,13 @@
       <td>
         <ul>
         <% @activity.each do |a| %>
-          <li class=""><%= a.activity %></li>
-          <% end %>
+          <li class="">
+            <%= a.activity %>
+            <%= link_to competence_goal_activity_path(@competence, @goal, a), data: { confirm: 'Weet je het zeker' }, method: :delete do %>
+            <span class="glyphicon glyphicon-remove pull-right"></span>
+            <% end %>
+          </li>
+        <% end %>
         </ul>
         <span class="glyphicon glyphicon-plus" data-toggle="modal" data-target="#add_activity"> Toevoegen</span>
       </td>
