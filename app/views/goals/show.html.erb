@@ -1,6 +1,40 @@
 <%= @goal.description %>
 <%= @goal.reflection %>
 
+<h1>Leerdoel bekijken</h1>
+<table class="table table-condensed ">
+<%= form_for :goal, url: competence_goal_path(@competence, @goal), method: :patch do |f| %>
+    <tr>
+      <td><%= f.label :Leerdoel %></td>
+      <td>
+        <div class="input-group">
+          <span class="input-group-addon" id="basic-addon1">Ik wil leren om</span><%= @goal.description %>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td><b>Activiteiten</b></td>
+      <td>
+        <ul>
+        <% @activity.each do |a| %>
+          <li class=""><%= a.activity %></li>
+        <% end %>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td><%= f.label :Bewijsvoering %></td>
+      <td><%= @goal.evidence %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :Behaald_omdat %></td>
+      <td><%= @goal.reflection %></td>
+    </tr>
+    <% end %>
+  </table>
 
 
-<%= link_to 'Back', competence_path(@competence) %>
+<%= link_to competence_path(@competence), class:"btn btn-default btn-sm  pull-left" do %>
+          <span class="glyphicon glyphicon-chevron-left"></span>
+          Terug naar overzicht
+        <% end %>

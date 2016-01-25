@@ -41,7 +41,7 @@
   </table>
 
 
-<%= link_to competence_path(@competence), class:"btn btn-default btn-sm  pull-left" do %>
+<%= link_to competence_path(@competence), class:"btn btn-default btn-sm  pull-left", :data => { :no_turbolink => true } do  %>
           <span class="glyphicon glyphicon-chevron-left"></span>
           Terug naar overzicht
         <% end %>

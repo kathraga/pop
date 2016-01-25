@@ -14,6 +14,7 @@ class GoalsController < ApplicationController
   end
 
   def show
+    @activity = @goal.activities.all
   end
 
   def new
