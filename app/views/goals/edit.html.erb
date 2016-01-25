@@ -1,6 +1,7 @@
 <h1>Leerdoel bijwerken</h1>
-
+<table class="table table-condensed ">
 <%= form_for :goal, url: competence_goal_path(@competence, @goal), method: :patch do |f| %>
+
 
 
   <p>
@@ -50,4 +51,71 @@ Activiteiten:
 <hr>
 
 <%= link_to 'Terug naar overzicht', competence_path(@competence) %>
+
+
+    <tr>
+      <td><%= f.label :Leerdoel %></td>
+      <td>
+        <div class="input-group">
+          <span class="input-group-addon" id="basic-addon1">Ik wil leren om</span><%= f.text_field :description, class: 'form-control' %>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td><b>Activiteiten</b></td>
+      <td>
+        <ul>
+        <% @activity.each do |a| %>
+          <li class=""><%= a.activity %></li>
+          <% end %>
+        </ul>
+        <span class="glyphicon glyphicon-plus" data-toggle="modal" data-target="#add_activity"> Toevoegen</span>
+      </td>
+    </tr>
+    <tr>
+      <td><%= f.label :Bewijsvoering %></td>
+      <td><%= f.text_area :evidence, class: 'form-control'%></td>
+    </tr>
+    <tr>
+      <td><%= f.label :Behaald_omdat %></td>
+      <td><%= f.text_area :reflection, class: 'form-control custom-control', rows: 10, style: "resize:none" %></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><%= f.submit "Leerdoel bijwerken", class: 'btn btn-primary' %></td>
+      <% end %>
+    </tr>
+  </table>
+
+
+<%= link_to competence_path(@competence), class:"btn btn-default btn-sm  pull-left" do %>
+          <span class="glyphicon glyphicon-chevron-left"></span>
+          Terug naar overzicht
+        <% end %>
+
+
+<!-- Modal -->
+<div id="add_activity" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Activiteit Toevoegen</h4>
+      </div>
+      <div class="modal-body">
+        <p><%= form_for([@competence, @goal, @goal.activities.build]) do |f| %>
+          <%= f.text_field :activity %>
+          <%= f.submit "Toevoegen", class: 'btn btn-primary' %>
+        <% end %>
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>
+      </div>
+    </div>
+
+  </div>
+</div>
 

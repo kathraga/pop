@@ -30,6 +30,9 @@
       </tr>
     <% end %>
   </table></p>
+  <%= link_to competences_path, class:"btn btn-default btn-sm  pull-left" do %>
+  <span class="glyphicon glyphicon-chevron-left"></span>Terug naar competenties overzicht
+<% end %>
     </div>
     <div id="goal_add" class="tab-pane fade">
       <h3>Leerdoel toevoegen:</h3>
@@ -39,13 +42,10 @@
     <div class="input-group">
       <span class="input-group-addon" id="basic-addon1">Ik wil leren om</span>
       <%= f.text_field :description, class:'form-control' %>
-      <p>
-
-</p>
   </div>
   </p>
   <p>
-    <%= f.submit("Leerdoel toevoegen") %>
+    <%= f.submit "Leerdoel toevoegen", class: 'btn btn-primary' %>
   </p>
 <% end %></p>
 
@@ -55,20 +55,11 @@
       <%= form_for @competence do |f| %>
       EC's Gevorderd<%= f.select(:g_ec, ['0', '3','6','9','12'], {},{ :class => 'form-control' }) %>
       EC's Expert<%= f.select(:e_ec, ['0', '3','6','9','12'], {},{ :class => 'form-control' }) %>
-      <%= f.submit("Ec´s toevoegen aan competentie") %>
+      <%= f.submit "Ec´s toevoegen aan competentie", class: 'btn btn-primary' %>
       <% end %>
     </div>
   </div>
 
 
 
-
-
-
-  <!-- <%= link_to 'Leerdoel Toevoegen', new_competence_goal_path(@competence, @goal) %> -->
-
-
-
-
-<%= link_to 'Terug naar overzicht', competences_path %>
 
