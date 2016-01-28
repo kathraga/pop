@@ -18,12 +18,6 @@ class ActivitiesController < ApplicationController
     @activity = Activity.find(params[:id])
     @activity.destroy
     redirect_to edit_competence_goal_path(@competence, @goal)
-
-
-
-    #  @post = Post.find(params[:post_id])
-    # @comment = Comment.find(params[:id])
-    # @comment.destroy
   end
 
   def edit

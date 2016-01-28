@@ -55,13 +55,12 @@
       </div>
       <div class="modal-body">
         <p><%= form_for([@competence, @goal, @goal.activities.build]) do |f| %>
-          <%= f.text_field :activity %>
-          <%= f.submit "Toevoegen", class: 'btn btn-primary' %>
-        <% end %>
+          <%= f.text_field :activity, class: "form-control" %>
         </p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>
+             <%= f.submit "Toevoegen", class: 'btn btn-primary' %>
+        <% end %>
       </div>
     </div>
 

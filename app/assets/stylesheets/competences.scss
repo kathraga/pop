@@ -23,5 +23,22 @@
     .nav-tabs > li.active > a::after, .nav-tabs > li:hover > a::after { transform: scale(1); }
 .tab-nav > li > a::after { background: #21527d none repeat scroll 0% 0%; color: #fff; }
 .tab-pane { padding: 15px 0; }
-.tab-content{padding:20px}
+.tab-content{padding:20px;}
 
+
+
+.modal-header, h4 {
+      color: #000 !important;
+      text-align: center;
+      font-size: 30px;
+  }
+.modal-header{
+   border-bottom: none !important;
+}
+
+button.close{ font-size: 20px; color: #000 !important; opacity: 1;}
+
+  .modal-footer {
+      background-color: #FFF;
+      border-top: 0px !important;
+  }
