@@ -1,19 +1,22 @@
-<table class="table table-striped table-bordered table-condensed table-hover">
-  <tr>
-    <th>Competenties</th>
-    <th>EC's gevorderd</th>
-    <th>EC's expert</th>
-    <th>Meer informatie</th>
-  </tr>
+<table class="table table-hover">
+  <thead>
+    <th class="col-md-7">Competenties</th>
+    <th class="col-md-2">EC's gevorderd</th>
+    <th class="col-md-2">EC's expert</th>
+    <th class="col-md-1">Bekijken</th>
+  </thead>
   <% @competences.each do |competence| %>
   <tr>
-    <td><%= competence.name %></td>
+    <td class="first_col"><%= competence.name %></td>
     <td><%= competence.g_ec %></td>
     <td><%= competence.e_ec %></td>
-    <td><%= link_to 'Bekijken', competence_path(competence) %></td>
+    <td><%= link_to competence_path(competence) do %>
+          <span class="glyphicon glyphicon-eye-open"></span>
+        <% end %>
+    </td>
   </tr>
   <% end %>
-  <tr>
+  <tr class="table_footer">
     <td></td>
     <td>Totaal: <%= Competence.sum(:g_ec)  %> EC</td>
     <td>Totaal: <%= Competence.sum(:e_ec)  %> EC</td>

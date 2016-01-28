@@ -4,6 +4,8 @@
 // Main table in show.html.erb
 .table td { text-align: center; }
   .first_col { text-align: left !important; }
+.table th { text-align: center;}
+.table_footer { border-top: double !important; }
 
 // Add ec's tab on show.html.erb
 .ec_box { margin: 0 auto; width: 350px; margin-top: 20px;}
