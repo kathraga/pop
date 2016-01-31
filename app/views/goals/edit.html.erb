@@ -10,14 +10,14 @@
     </td>
   </tr>
   <tr>
-    <td><b>Activiteiten</b></td>
+    <td><b>Activiteit(en)</b></td>
     <td class="first_col">
       <ul>
       <% @activity.each do |a| %>
         <li class="">
           <%= a.activity %>
           <%= link_to competence_goal_activity_path(@competence, @goal, a), data: { confirm: 'Weet je het zeker' }, method: :delete do %>
-          <span class="glyphicon glyphicon-remove pull-right"></span>
+          <span class="glyphicon glyphicon-remove pull-right delete_cross"></span>
           <% end %>
         </li>
       <% end %>
@@ -31,7 +31,7 @@
   </tr>
   <tr>
     <td><%= f.label :Behaald_omdat %></td>
-    <td><%= f.text_area :reflection, class: 'form-control custom-control', rows: 10, style: "resize:none" %></td>
+    <td><%= f.text_area :reflection, class: 'form-control custom-control', rows: 10, style: "resize:vertical" %></td>
   </tr>
   <tr>
     <td></td>

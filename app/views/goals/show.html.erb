@@ -1,7 +1,10 @@
-<h3>Ik wil leren om <%= @goal.description %></h3>
-<table class="table table-condensed ">
+<table class="table table-condensed goals">
+  <tr>
+    <td class="col-md-2"><b>Leerdoel</b></td>
+    <td class="first_col">Ik wil leren om <%= @goal.description %></td>
+  </tr>
     <tr>
-      <td class="col-md-2 first_col"><b>Activiteiten</b></td>
+      <td><b>Activiteit(en)</b></td>
       <td class="first_col">
         <ul>
         <% @activity.each do |a| %>
@@ -11,11 +14,11 @@
       </td>
     </tr>
     <tr>
-      <td class="first_col"><b>Bewijsvoering</b></td>
+      <td><b>Bewijsvoering</b></td>
       <td class="first_col"><%= @goal.evidence %></td>
     </tr>
     <tr>
-      <td class="first_col"><b>Behaald omdat</b></td>
+      <td><b>Behaald omdat</b></td>
       <td class="first_col"><%= @goal.reflection %></td>
     </tr>
   </table>
