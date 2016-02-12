@@ -47,3 +47,4 @@ end
     params.require(:goal).permit(:description, :reflection, :evidence)
   end
 end
+
