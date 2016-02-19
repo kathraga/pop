@@ -8,7 +8,7 @@ class GoalsController < ApplicationController
     if @goal.save
     redirect_to competence_goal_path(@competence, @goal)
     else
-      flash[:goal_error] = "Leerdoel moet minimaal 4 characters zijn en maximaal 80."
+      flash[:goal_error] = "Leerdoel moet minimaal 4 characters lang zijn en maximaal 80 characters lang."
       redirect_to competence_path(@competence, tab:"goal_add")
     end
   end

@@ -1,3 +1,14 @@
+<!-- Error Logging -->
+<% if flash[:activity_error] %>
+  <div class="alert alert-danger">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+    <span class="sr-only">Error:</span>
+    <%= flash[:activity_error] %>
+  </div>
+<% end %>
+
+<!-- Content -->
 <h1>Leerdoel bijwerken</h1>
 <table class="table table-condensed goals ">
 <%= form_for :goal, url: competence_goal_path(@competence, @goal), method: :patch do |f| %>

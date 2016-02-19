@@ -8,8 +8,13 @@ class ActivitiesController < ApplicationController
     @competence = Competence.find(params[:competence_id])
     @goal = Goal.find(params[:goal_id])
     @activity = @goal.activities.build(activity_params)
-    @activity.save!
+
+    if @activity.save
     redirect_to edit_competence_goal_path(@competence, @goal)
+    else
+      flash[:activity_error] = "Activiteit moet minimaal 4 characters lang zijn en maximaal 80 characters lang."
+      redirect_to edit_competence_goal_path(@competence, @goal)
+    end
   end
 
   def destroy
