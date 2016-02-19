@@ -34,7 +34,8 @@ class GoalsController < ApplicationController
   if @goal.update(goal_params)
     redirect_to edit_competence_goal_path(@competence, @goal)
   else
-    render 'edit'
+    flash[:goal_error] = "Leerdoel moet minimaal 4 characters lang zijn en maximaal 80 characters lang."
+    redirect_to edit_competence_goal_path(@competence, @goal)
   end
 end
 
