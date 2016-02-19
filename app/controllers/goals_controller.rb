@@ -5,7 +5,12 @@ class GoalsController < ApplicationController
 
   def create
     @goal = @competence.goals.create(goal_params)
+    if @goal.save
     redirect_to competence_goal_path(@competence, @goal)
+    else
+      flash[:goal_error] = "Leerdoel moet minimaal 4 characters zijn en maximaal 80."
+      redirect_to competence_path(@competence, tab:"goal_add")
+    end
   end
 
    def destroy

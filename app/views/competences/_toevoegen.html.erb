@@ -1,0 +1,19 @@
+<!-- Error Logging -->
+<% if flash[:goal_error] %>
+  <div class="alert alert-danger">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+    <span class="sr-only">Error:</span>
+    <%= flash[:goal_error] %>
+  </div>
+<% end %>
+
+<!-- Content -->
+<h3>Leerdoel toevoegen:</h3>
+<%= form_for([@competence, @competence.goals.build]) do |f| %>
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Ik wil leren om</span>
+    <%= f.text_field :description, class:'form-control' %>
+  </div>
+  <p><%= f.submit "Leerdoel toevoegen", class: 'btn btn-primary goal_add' %></p>
+<% end %>

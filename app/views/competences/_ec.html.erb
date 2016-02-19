@@ -1,0 +1,20 @@
+<h3>Opgenomen EC's </h3>
+<div class="ec_box">
+  <%= form_for @competence do |f| %>
+    <form class="pagination-centered">
+      <fieldset class="form-group">
+        <label for="ecg" class="col-sm-6 form-control-label">EC's Gevorderd</label>
+        <div class="col-sm-2">
+          <%= f.select(:g_ec, ['0', '3','6','9','12'], {},{ :class => 'form-control input-mini', :id => 'ecg' }) %>
+        </div>
+      </fieldset>
+      <fieldset class="form-group">
+        <label for="ece" class="col-sm-6 form-control-label">EC's Expert</label>
+        <div class="col-sm-2">
+          <%= f.select(:e_ec, ['0', '3','6','9','12'], {},{ :class => 'form-control input-mini', :id => 'ece'})%>
+        </div>
+      </fieldset>
+      <%= f.submit "Ec's bijwerken", class: 'btn btn-primary' %>
+    </form>
+  <% end %>
+</div>

@@ -1,0 +1,32 @@
+    <h3>Leerdoelen:</h3>
+    <table class="table table-hover">
+      <thead>
+        <th class="col-md-9 first_col">Leerdoel</th>
+        <th class="col-md-1">Verwijderen</th>
+        <th class="col-md-1">Bewerken</th>
+        <th class="col-md-1">Bekijken</th>
+      </thead>
+      <% @competence.goals.each do |goal| %>
+      <tr>
+        <td class="first_col"><strong>Ik wil leren om: </strong><%= goal.description %></td>
+        <td>
+          <%= link_to [goal.competence, goal], data: { confirm: 'Leerdoel verwijderen?' }, method: :delete do %>
+          <span class="glyphicon glyphicon-remove text-center"></span>
+          <% end %>
+       </td>
+       <td>
+        <%= link_to edit_competence_goal_path(@competence, goal), :data => { :no_turbolink => true } do %>
+          <span class="glyphicon glyphicon-pencil"></span>
+        <% end %>
+       </td>
+       <td>
+        <%= link_to competence_goal_path(@competence, goal) do %>
+          <span class="glyphicon glyphicon-eye-open"></span>
+        <% end %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  <%= link_to competences_path, class:"btn btn-default btn-sm  pull-left" do %>
+    <span class="glyphicon glyphicon-chevron-left"></span>Terug naar competenties overzicht
+  <% end %>
