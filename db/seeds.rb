@@ -5,7 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Competence.create(name: 'Research and Innovations', g_ec: 3, e_ec: 0)
+Competence.create(name: 'Research and Innovations', g_ec: 0, e_ec: 0)
 Competence.create(name: 'Concepting', g_ec: 0, e_ec: 0)
 Competence.create(name: 'Multimedia Design', g_ec: 0, e_ec: 0)
 Competence.create(name: 'Multimedia Production', g_ec: 0, e_ec: 0)
